@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "json-bigint": "^0.2.3"
+    "request": "^2.83.0"
   }
 }
