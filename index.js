@@ -42,7 +42,6 @@ let addSet = new Set([])
 let delSet = new Set([])
 
 let added = new Set([])
-let deleted = new Set([])
 
 let SeedProc = () => {
   options.path = "/seed"
@@ -78,13 +77,11 @@ let getDocument = (path) => {
           }
         }
       } else {
-       if (!deleted.has(img.id)) {
-          delSet.add(img.id)
-          if (delSet.size === 50) {
-            deleteProcess(Array.from(delSet))
-            delSet.clear()
-          }
-       }
+        delSet.add(img.id)
+        if (delSet.size === 50) {
+          deleteProcess(Array.from(delSet))
+          delSet.clear()
+        }
       }
     }
 
