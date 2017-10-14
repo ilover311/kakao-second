@@ -19,10 +19,10 @@ Delete method 에 대해서는 http가 정상작동 되지 않는 것으로 보�
 
 함수의 부분을 각 부분에 따라 나뉘었습니다.
 
-1. SeedProc : seed doc을 받아오는 함수
-2. getDocument : doc path을 받아와서 add, del를 불러주고 next_doc path로 재귀적 방법을 하는 함수
-3. addProcess : add image들에 대해서 feature를 받아와서 다시 POST해주는 함수
-4. deleteProcess : delete image들 대해서 delete 하는 함수
+- SeedProc : seed doc을 받아오는 함수
+- getDocument : doc path을 받아와서 add, del를 불러주고 next_doc path로 재귀적 방법을 하는 함수
+- addProcess : add image들에 대해서 feature를 받아와서 다시 POST해주는 함수
+- deleteProcess : delete image들 대해서 delete 하는 함수
 
 이 함수들에 대해서 처음 프로그램이 시작하면서 token을 받아오게 하고, token을 받아 SeedProc 함수를 부르고
 SeedProc에서 doc url들에 대해서 하나씩 getDocument 함수를 불러줍니다
@@ -34,6 +34,7 @@ addSet이 50개가 되면 addProcess 함수를 불러주고
 delSet이 50개가 되면 deleteProcess 함수를 불러줍니다.
 
 그리고 images를 모두 보고나서 next_url를 다시 getDocument에 넘겨서 같은 방식을 재귀적으로 반복하게 합니다.
+50개/초의 request가 요청되어 error로 catch되어 누락되는 쿼리가 많은 것으로 확인하여 error 결과가 리턴됐을때 다시 재귀적으로 자신을 불러 누락되지 않게했습니다.
 
 ----------
 
